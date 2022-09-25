@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var imgView: UIImageView!
+    @IBOutlet var txtLineSize: UITextField!
     
     var lastPoint: CGPoint!
     var lineSize: CGFloat = 2.0
@@ -18,6 +19,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        txtLineSize.text = String(Int(lineSize))
+
     }
 
 
@@ -77,6 +81,44 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
+    
+    @IBAction func txtEditChange(_ sender: UITextField) {
+        if txtLineSize.text != "" {
+            lineSize =    CGFloat(Int(txtLineSize.text!)!)
+        }
+    }
+    
+    @IBAction func txtDidEndOnExit(_ sender: UITextField) {
+        lineSize =    CGFloat(Int(txtLineSize.text!)!)
+
+    }
+    
+    @IBAction func txtTouchDown(_ sender: UITextField) {
+        txtLineSize.selectAll(UITextField.self)
+
+    }
+    
+    @IBAction func btnChangeLineColorBlack(_ sender: UIButton) {
+        lineColor = UIColor.black.cgColor
+
+    }
+    
+    @IBAction func btnChangeLineColorRed(_ sender: UIButton) {
+        lineColor = UIColor.red.cgColor
+
+    }
+        
+    @IBAction func btnChangeLineColorGreen(_ sender: UIButton) {
+        lineColor = UIColor.green.cgColor
+
+    }
+    
+    @IBAction func btnChangeLineColorBlue(_ sender: UIButton) {
+        lineColor = UIColor.blue.cgColor
+
+    }
     
 }
 
